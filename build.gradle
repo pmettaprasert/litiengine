@@ -1,5 +1,6 @@
 plugins {
   id "java"
+  id 'jacoco'
 
   alias libs.plugins.spotless
   alias libs.plugins.versions
@@ -16,6 +17,20 @@ plugins {
 
 subprojects {
   project.version = rootProject.version
+  jacoco {
+    toolVersion = "0.8.9"
+  }
+  test {
+    finalizedBy jacocoTestReport
+  }
+  jacocoTestReport {
+    dependsOn test
+    reports {
+      xml.required = false
+      csv.required = false
+      html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+  }
 }
 
 group = gurkenlabs_group
@@ -29,3 +44,5 @@ nexusPublishing {
     }
   }
 }
+
+
