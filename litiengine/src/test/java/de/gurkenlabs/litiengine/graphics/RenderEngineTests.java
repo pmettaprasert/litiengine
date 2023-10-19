@@ -35,15 +35,25 @@ public class RenderEngineTests {
 
   @Test
   public void testRenderImage() {
+
+    //Mock the class Graphics2D
     Graphics2D graphics = mock(Graphics2D.class);
 
+    //create an image with the size 5x5
     final Image img = Imaging.getCompatibleImage(5, 5);
+
+    //Render the image at the position (10,20)
     ImageRenderer.render(graphics, img, new Point2D.Double(10, 20));
 
+    //Actually capture the arguments passed to the mocked class
     ArgumentCaptor<Image> captor = ArgumentCaptor.forClass(Image.class);
     ArgumentCaptor<AffineTransform> transCaptor = ArgumentCaptor.forClass(AffineTransform.class);
+
+    //verify if the drawImage method is called with the correct arguments
+    //and that it captures the correct arguments
     verify(graphics).drawImage(captor.capture(), transCaptor.capture(), any());
 
+    //assert if the captured arguments are correct
     assertEquals(img, captor.getValue());
     assertEquals(10, transCaptor.getValue().getTranslateX());
     assertEquals(20, transCaptor.getValue().getTranslateY());
