@@ -15,11 +15,21 @@ import org.mockito.ArgumentCaptor;
 
 public class RenderEngineTests {
 
+  //Notes:
+  //Graphics2D is class in java.awt package which deals with 2D graphics,
+  // like drawinglines
+
+
   @Test
   public void testDrawText() {
+
+    //create a mock of the class Graphics2D
     Graphics2D graphics = mock(Graphics2D.class);
 
+    //Draw a line
     TextRenderer.render(graphics, "abc", 50.0, 100.0);
+
+    //Check if the line is drawn at the correct position
     verify(graphics).drawString("abc", 50f, 100f);
   }
 
