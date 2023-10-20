@@ -78,4 +78,33 @@ class AttributeModifierTest {
     // Assert: Check that the result is null as expected.
     assertNull(result);
   }
+
+  // Test case for hashCode
+  @Test
+  public void testHashCode() {
+    // Arrange: Set up two AttributeModifier objects that are equal to each other
+    AttributeModifier<Integer> modifier1 = new AttributeModifier<>(Modification.SET, 1);
+    AttributeModifier<Integer> modifier2 = modifier1;
+
+    // Act: Call the hashCode method on each object
+    int hash1 = modifier1.hashCode();
+    int hash2 = modifier2.hashCode();
+
+    // Assert: Check that the two objects return the same hash value
+    assertEquals(hash1, hash2, "Equal objects should have the same hash code");
+  }
+
+  // Test case for equals method (outside if block)
+  @Test
+  public void testNotAnInstanceOfAttributeModifier() {
+    // Arrange: Set up a AttributeModifier and Attribute object since they do not share a parent class.
+    AttributeModifier<Integer> modifier1 = new AttributeModifier<>(Modification.SET, 1);
+    Attribute<Integer> testAttribute = new Attribute<>(10);
+
+    // Act: Call the equals method to check that testAttribute is not an instance of modifier1
+    boolean result = modifier1.equals(testAttribute);
+
+    // Assert: Confirm that equals method returns false
+    assertFalse(result);
+  }
 }
