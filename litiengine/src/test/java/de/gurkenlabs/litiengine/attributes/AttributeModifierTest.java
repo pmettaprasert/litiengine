@@ -1,9 +1,8 @@
 package de.gurkenlabs.litiengine.attributes;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class AttributeModifierTest {
 
@@ -27,5 +26,22 @@ class AttributeModifierTest {
 
     assertEquals(7, testAttributeModifierActive.modify(2));
     assertEquals(2, testAttributeModifierInactive.modify(2));
+  }
+
+  // Test case for the `modify` method with an UNKNOWN modification type
+  @Test
+  public void testModifyWithUnknownModification() {
+    // Arrange
+    // Create an AttributeModifier object with Modification type as UNKNOWN and a modify value of 50
+    AttributeModifier<Double> attributeModifier = new AttributeModifier<>(Modification.UNKNOWN, 50);
+    Double originalValue = 100.0;
+
+    // Act
+    // Call the `modify` method and store the modified value
+    Double modifiedValue = attributeModifier.modify(originalValue);
+
+    // Assert
+    // Check if the modified value is equal to the original value. It should be equal since the modification type is UNKNOWN
+    assertEquals(originalValue, modifiedValue, "The value should not be modified for UNKNOWN modification");
   }
 }
