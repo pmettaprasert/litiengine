@@ -488,4 +488,34 @@ class AttributeTests {
     assertEquals("20.0", testAttributeFloat.toString());
     assertEquals("20.0", testAttributeDouble.toString());
   }
+
+
+  @Test
+  void testModifyBaseValue() {
+    final Attribute<Integer> testAttribute = new Attribute<>(10);
+    testAttribute.modifyBaseValue(Modification.ADD, 5);
+    assertEquals(15, testAttribute.get().intValue());
+
+    testAttribute.modifyBaseValue(Modification.SUBTRACT, 3);
+    assertEquals(12, testAttribute.get().intValue());
+
+    testAttribute.modifyBaseValue(Modification.MULTIPLY, 2);
+    assertEquals(24, testAttribute.get().intValue());
+
+    testAttribute.modifyBaseValue(Modification.DIVIDE, 3);
+    assertEquals(8, testAttribute.get().intValue());
+  }
+
+  @Test
+  void testSetBaseValue() {
+    final Attribute<Integer> testAttribute = new Attribute<>(10);
+    assertEquals(10, testAttribute.get().intValue());
+
+    testAttribute.setBaseValue(20);
+    assertEquals(20, testAttribute.get().intValue());
+
+    testAttribute.setBaseValue(30);
+    assertEquals(30, testAttribute.get().intValue());
+  }
+
 }
