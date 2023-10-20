@@ -44,4 +44,23 @@ class AttributeModifierTest {
     // Check if the modified value is equal to the original value. It should be equal since the modification type is UNKNOWN
     assertEquals(originalValue, modifiedValue, "The value should not be modified for UNKNOWN modification");
   }
+
+  // Test case for the `setModifyValue` method
+  @Test
+  public void testSetModifyValue() {
+    // Arrange
+    // Create an AttributeModifier object with an initial modify value of 50
+    AttributeModifier<Double> attributeModifier = new AttributeModifier<>(Modification.ADD, 50);
+
+    // Define a new modify value to set, which is 100.0
+    double newModifyValue = 100.0;
+
+    // Act
+    // Call the `setModifyValue` method to update the modify value
+    attributeModifier.setModifyValue(newModifyValue);
+
+    // Assert
+    // Check if the new modify value has been updated correctly
+    assertEquals(newModifyValue, attributeModifier.getModifyValue(), "The modify value should be updated to 100.0");
+  }
 }
