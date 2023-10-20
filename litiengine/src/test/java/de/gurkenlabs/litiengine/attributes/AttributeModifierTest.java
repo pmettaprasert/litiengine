@@ -2,6 +2,8 @@ package de.gurkenlabs.litiengine.attributes;
 
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AttributeModifierTest {
@@ -62,5 +64,18 @@ class AttributeModifierTest {
     // Assert
     // Check if the new modify value has been updated correctly
     assertEquals(newModifyValue, attributeModifier.getModifyValue(), "The modify value should be updated to 100.0");
+  }
+
+  // Test case for EnsureType method with unsupported type
+  @Test
+  public void testEnsureTypeReturnsNull() {
+    // Arrange: Set up data and create an instance with unsupported type of Number (BigInteger).
+    AttributeModifier<BigInteger> modifier = new AttributeModifier<>(Modification.ADD, 10);
+
+    // Act: Call the method that uses ensureType with the unsupported type.
+    BigInteger result = modifier.modify(BigInteger.TEN);
+
+    // Assert: Check that the result is null as expected.
+    assertNull(result);
   }
 }
