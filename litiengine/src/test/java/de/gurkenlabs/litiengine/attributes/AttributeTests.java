@@ -490,32 +490,43 @@ class AttributeTests {
   }
 
 
+  /**
+   * Test that the modifyBaseValue method correctly adjusts the attribute's base value.
+   */
   @Test
   void testModifyBaseValue() {
     final Attribute<Integer> testAttribute = new Attribute<>(10);
+
+    // Test addition
     testAttribute.modifyBaseValue(Modification.ADD, 5);
     assertEquals(15, testAttribute.get().intValue());
 
+    // Test subtraction
     testAttribute.modifyBaseValue(Modification.SUBTRACT, 3);
     assertEquals(12, testAttribute.get().intValue());
 
+    // Test multiplication
     testAttribute.modifyBaseValue(Modification.MULTIPLY, 2);
     assertEquals(24, testAttribute.get().intValue());
 
+    // Test division
     testAttribute.modifyBaseValue(Modification.DIVIDE, 3);
     assertEquals(8, testAttribute.get().intValue());
   }
 
+  /**
+   * Test that the setBaseValue method correctly sets the attribute's base value.
+   */
   @Test
   void testSetBaseValue() {
     final Attribute<Integer> testAttribute = new Attribute<>(10);
     assertEquals(10, testAttribute.get().intValue());
 
+    // Test setting base value
     testAttribute.setBaseValue(20);
     assertEquals(20, testAttribute.get().intValue());
 
     testAttribute.setBaseValue(30);
     assertEquals(30, testAttribute.get().intValue());
   }
-
 }
