@@ -54,6 +54,8 @@ public class GameTest {
           }
         });
 
+
+
     assertFalse(initialized.wasCalled);
 
     // other unit tests might also initialize the game and depending on the concurrent execution
@@ -87,6 +89,11 @@ public class GameTest {
           () -> {},
           Game.COMMANDLINE_ARG_NOGUI);
     });
+  }
+  @Test
+  //add a failing test to see if the test suite is working
+  public void testFailingTest() {
+    assertTrue(false);
   }
 
 }

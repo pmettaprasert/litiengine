@@ -82,8 +82,6 @@ public final class Game {
   private static final SoundEngine soundEngine = new SoundEngine();
   private static final PhysicsEngine physicsEngine = new PhysicsEngine();
 
-  BLAHALDJSALFJD:JFJKDSFJ TESTING FOR THE BUILD UNCSSUECSSFUL
-
   private static final GameConfiguration configuration = new GameConfiguration();
   private static final GameMetrics metrics = new GameMetrics();
   private static final GameLog log = new GameLog();
