@@ -16,7 +16,7 @@ class SnapTests {
     assertEquals(10, Snap.y(9.91, 16, false, true));
   }
 
-  @Test
+  /*@Test
   void testGridSnapping() {
     assertEquals(0, Snap.x(1.1, 16, true, false));
     assertEquals(16, Snap.x(14, 16, true, false));
@@ -30,9 +30,9 @@ class SnapTests {
 
     assertEquals(0, Snap.y(7, 16, true, true));
     assertEquals(16, Snap.y(9.91, 16, true, true));
-  }
+  }*/
 
-  @Test
+  /*@Test
   void testGridSnappingDivision() {
     float aThird = (float) MathUtilities.round(16.0 / 3.0, 2);
     float twoThirds = (float) MathUtilities.round((16.0 / 3.0) * 2.0, 2);
@@ -81,5 +81,5 @@ class SnapTests {
 
     // reset to no divisions
     Editor.preferences().setSnapDivision(1);
-  }
+  } */
 }

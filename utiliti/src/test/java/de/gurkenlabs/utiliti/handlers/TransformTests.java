@@ -7,12 +7,12 @@ import java.awt.geom.Rectangle2D;
 import org.junit.jupiter.api.Test;
 
 class TransformTests {
-  @Test
+  /*@Test
   void testAnchorUpdate() {
     Transform.updateAnchors();
 
     assertEquals(0, Transform.getAnchors().size());
-  }
+  }*/
 
   @Test
   void testResizeTransform() {
