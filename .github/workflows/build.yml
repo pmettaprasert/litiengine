@@ -42,7 +42,6 @@ jobs:
         with:
           arguments: |
             build
-            -x test
             -PskipSpotless
 
       - name: Test
