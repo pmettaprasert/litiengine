@@ -53,8 +53,14 @@ jobs:
 
       - name: Prepare Email Content
         run: |
-            echo "BUILD_STATUS=${{ steps.build.outcome }}" >> $GITHUB_ENV
-            echo "TEST_STATUS=${{ steps.test.outcome }}" >> $GITHUB_ENV
+          echo "BUILD_STATUS=${{ steps.build.outcome }}" >> $GITHUB_ENV
+          echo "TEST_STATUS=${{ steps.test.outcome }}" >> $GITHUB_ENV
+
+      # Debug: Print the environment variables to the log
+      - name: Debug Environment Variables
+        run: |
+          echo "Build status from env: $BUILD_STATUS"
+          echo "Test status from env: $TEST_STATUS"
 
 
 
