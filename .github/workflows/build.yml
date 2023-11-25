@@ -65,7 +65,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Test Reports
-          paths: litiengine-test-report.zip, utiliti-test-report.zip
+          path: |
+              litiengine-test-report.zip
+              utiliti-test-report.zip
 
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
