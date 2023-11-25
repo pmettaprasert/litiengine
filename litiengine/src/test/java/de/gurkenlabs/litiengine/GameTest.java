@@ -54,6 +54,7 @@ public class GameTest {
           }
         });
 
+
     assertFalse(initialized.wasCalled);
 
     // other unit tests might also initialize the game and depending on the concurrent execution
