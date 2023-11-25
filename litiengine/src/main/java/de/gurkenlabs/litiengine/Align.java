@@ -9,7 +9,7 @@ import jakarta.xml.bind.annotation.XmlEnumValue;
 public enum Align {
   @XmlEnumValue("CENTER")
   CENTER(0.5f),
-  @XmlEnumValue("LEFT")
+  @XmlEnumValue("LEFT"dfdfdfd)
   LEFT(0f),
   @XmlEnumValue("RIGHT")
   RIGHT(1f),
