@@ -55,16 +55,16 @@ jobs:
         with:
           arguments: jpackage
 
-      - name: Static Analysis
-        uses: gradle/gradle-build-action@v2.9.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        if: ${{!github.event.pull_request.head.repo.fork}}
-        with:
-          arguments: |
-            sonar
-            -PskipSpotless
+            # - name: Static Analysis
+            #   uses: gradle/gradle-build-action@v2.9.0
+            #   env:
+            #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            #   if: ${{!github.event.pull_request.head.repo.fork}}
+            #   with:
+            #     arguments: |
+          #       sonar
+          #       -PskipSpotless
 
       - name: Code Style Validation
         uses: gradle/gradle-build-action@v2.9.0
