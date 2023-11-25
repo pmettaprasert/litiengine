@@ -79,9 +79,10 @@ jobs:
               password: ${{ secrets.OUTLOOK_PASSWORD }}
               subject: LITIengine Build Test Report
               to: collegeforpete@gmail.com
-              from: "Your Name <${{ secrets.OUTLOOK_USERNAME }}>"
+              from: "This is from the litiengine Team 2 project <${{ secrets
+              .OUTLOOK_USERNAME }}>"
               body: The build and test job for ${{ github.repository }} completed successfully.
-              attachments: litiengine-test-reports.zip,utiliti-test-reports.zip
+              attachments: litiengine-test-reports.zip
 
       - name: Package Creation
         uses: gradle/gradle-build-action@v2.9.0
