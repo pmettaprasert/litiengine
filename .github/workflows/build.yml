@@ -52,8 +52,8 @@ jobs:
 
       - name: Zip Test Reports
         run: |
-          zip -r litiengine-test-reports.zip build/reports/tests
-          zip -r utiliti-test-reports.zip build/reports/tests
+            zip -j litiengine-test-report.zip litiengine/build/reports/tests/test/index.html
+            zip -j utiliti-test-report.zip utiliti/build/reports/tests/test/index.html
 
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
