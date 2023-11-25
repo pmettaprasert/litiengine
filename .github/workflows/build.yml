@@ -55,6 +55,18 @@ jobs:
             zip -j litiengine-test-report.zip litiengine/build/reports/tests/test/index.html
             zip -j utiliti-test-report.zip utiliti/build/reports/tests/test/index.html
 
+      # Add this step to list the contents of the zipped report files
+      - name: List Zipped Report Files
+        run: |
+          ls -l *.zip
+
+      # Add this step to upload the zipped reports as artifacts
+      - name: Upload Test Report Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Reports
+          paths: litiengine-test-report.zip, utiliti-test-report.zip
+
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
