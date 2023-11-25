@@ -87,12 +87,6 @@ class AlignTests {
     assertEquals(5.0f, value, 0.001); // Assert that the value is width * portion (10.0 * 0.5)
   }
 
-  @Test
-  //introduce failing test
-  //assert false
-  void assertFailingTest() {
-    assertEquals(1, 2);
-  }
 
 
 }
