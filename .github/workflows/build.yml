@@ -50,6 +50,25 @@ jobs:
         with:
           run: ./gradlew jacocoTestReport -PskipSpotless
 
+      - name: Zip Test Reports
+        run: |
+          zip -r litiengine-test-reports.zip build/reports/tests
+          zip -r utiliti-test-reports.zip build/reports/tests
+
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+            server_address: smtp.office365.com
+            server_port: 587
+            secure: true
+            username: ${{ secrets.OUTLOOK_USERNAME }}
+            password: ${{ secrets.OUTLOOK_PASSWORD }}
+            subject: LITIengine Build Test Report
+            to: collegeforpete@gmail.com
+            from: "Your Name <${{ secrets.OUTLOOK_USERNAME }}>"
+            body: The build and test job for ${{ github.repository }} completed successfully.
+            attachments: litiengine-test-reports.zip,utiliti-test-reports.zip
+
       - name: Package Creation
         uses: gradle/gradle-build-action@v2.9.0
         with:
@@ -65,6 +84,7 @@ jobs:
             #     arguments: |
           #       sonar
           #       -PskipSpotless
+
 
       - name: Code Style Validation
         uses: gradle/gradle-build-action@v2.9.0
