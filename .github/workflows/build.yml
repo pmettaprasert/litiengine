@@ -75,17 +75,17 @@ jobs:
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
-              server_address: smtp.office365.com
-              server_port: 587
-              secure: false  # Use STARTTLS, which starts unsecured and then switches to a secure connection
-              username: ${{ secrets.OUTLOOK_USERNAME }}
-              password: ${{ secrets.OUTLOOK_PASSWORD }}
-              subject: Build and Test Results for ${{ github.repository }}
-              to: collegeforpete@gmail.com
-              from: "LitiEngine Team 2 <${{ secrets.OUTLOOK_USERNAME }}>"
-              body: |
-                Build Status: ${{ env.BUILD_STATUS }}
-                Test Status: ${{ env.TEST_STATUS }}
+          server_address: smtp.office365.com
+          server_port: 587
+          secure: false  # Use STARTTLS, which starts unsecured and then switches to a secure connection
+          username: ${{ secrets.OUTLOOK_USERNAME }}
+          password: ${{ secrets.OUTLOOK_PASSWORD }}
+          subject: Build and Test Results for ${{ github.repository }}
+          to: collegeforpete@gmail.com
+          from: "LitiEngine Team 2 <${{ secrets.OUTLOOK_USERNAME }}>"
+          body: |
+            Build Status: ${{ env.BUILD_STATUS }}
+            Test Status: ${{ env.TEST_STATUS }}
         continue-on-error: true
 
 
@@ -101,7 +101,7 @@ jobs:
             #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
             #   if: ${{!github.event.pull_request.head.repo.fork}}
             #   with:
-            #     arguments: |
+          #     arguments: |
           #       sonar
           #       -PskipSpotless
 
