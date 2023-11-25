@@ -55,14 +55,16 @@ jobs:
 
       - name: Prepare Email Content
         run: |
-          echo "BUILD_STATUS=success" >> $GITHUB_ENV
-          if [ ${{ steps.build.outcome }} == 'failure' ]; then
-            echo "BUILD_STATUS=failure" >> $GITHUB_ENV
-          fi
-          echo "TEST_STATUS=success" >> $GITHUB_ENV
-          if [ ${{ steps.test.outcome }} == 'failure' ]; then
-            echo "TEST_STATUS=failure" >> $GITHUB_ENV
-          fi
+            BUILD_STATUS=true
+            TEST_STATUS=true
+            if [ "${{ steps.build.outcome }}" == "failure" ]; then
+              BUILD_STATUS=false
+            fi
+            if [ "${{ steps.test.outcome }}" == "failure" ]; then
+              TEST_STATUS=false
+            fi
+            echo "BUILD_STATUS=${BUILD_STATUS}" >> $GITHUB_ENV
+            echo "TEST_STATUS=${TEST_STATUS}" >> $GITHUB_ENV
 
       # Debug: Print the environment variables to the log
       - name: Debug Environment Variables
@@ -84,8 +86,8 @@ jobs:
           to: collegeforpete@gmail.com
           from: "LitiEngine Team 2 <${{ secrets.OUTLOOK_USERNAME }}>"
           body: |
-            Build Status: ${{ env.BUILD_STATUS }}
-            Test Status: ${{ env.TEST_STATUS }}
+            Build Status Successful: ${{ env.BUILD_STATUS }}
+            Test Status Successful: ${{ env.TEST_STATUS }}
         continue-on-error: true
 
 
