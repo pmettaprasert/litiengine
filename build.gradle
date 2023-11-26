@@ -15,11 +15,16 @@ plugins {
   id "sonarqube-defaults"
 }
 
+
+dependencies {
+  testImplementation 'org.assertj:assertj-swing:3.17.1'
+}
 subprojects {
   project.version = rootProject.version
   jacoco {
     toolVersion = "0.8.9"
   }
+
   test {
     finalizedBy jacocoTestReport
   }
