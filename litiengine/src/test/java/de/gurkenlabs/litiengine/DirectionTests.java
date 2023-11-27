@@ -6,6 +6,8 @@ import static org.mockito.Mockito.mockStatic;
 
 import de.gurkenlabs.litiengine.util.geom.GeometricUtilities;
 import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -84,4 +86,40 @@ class DirectionTests {
         Arguments.of(Direction.DOWN, Direction.UP),
         Arguments.of(Direction.UNDEFINED, Direction.UNDEFINED));
   }
+
+  @Test
+  void testFromFlagValue() {
+    // Test case 1: Valid flag value for DOWN
+    byte flagValueDown = Direction.DOWN.toFlagValue();
+    Direction resultDown = Direction.fromFlagValue(flagValueDown);
+    assertEquals(Direction.DOWN, resultDown);
+
+    // Test case 2: Valid flag value for RIGHT
+    byte flagValueRight = Direction.RIGHT.toFlagValue();
+    Direction resultRight = Direction.fromFlagValue(flagValueRight);
+    assertEquals(Direction.RIGHT, resultRight);
+
+    // Test case 3: Valid flag value for UP
+    byte flagValueUp = Direction.UP.toFlagValue();
+    Direction resultUp = Direction.fromFlagValue(flagValueUp);
+    assertEquals(Direction.UP, resultUp);
+
+    // Test case 4: Valid flag value for LEFT
+    byte flagValueLeft = Direction.LEFT.toFlagValue();
+    Direction resultLeft = Direction.fromFlagValue(flagValueLeft);
+    assertEquals(Direction.LEFT, resultLeft);
+
+    // Test case 5: Invalid flag value (not associated with any direction)
+    byte invalidFlagValue = 99;
+    Direction resultInvalid = Direction.fromFlagValue(invalidFlagValue);
+    assertEquals(Direction.UNDEFINED, resultInvalid);
+
+    // Test case 6: Loop through all possible flag values to ensure coverage
+    for (Direction direction : Direction.values()) {
+      byte flagValue = direction.toFlagValue();
+      Direction result = Direction.fromFlagValue(flagValue);
+      assertEquals(direction, result);
+    }
+  }
+
 }
