@@ -65,6 +65,7 @@ public class Program {
           "UtiLITI failed to initialize, see the stacktrace below for more information", e);
     }
   }
+  //added a comment
 
   private static void forceBasicEditorConfiguration() {
     // force configuration elements that are crucial for the editor
