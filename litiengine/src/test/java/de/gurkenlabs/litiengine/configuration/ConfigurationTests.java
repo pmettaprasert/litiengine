@@ -3,7 +3,7 @@ package de.gurkenlabs.litiengine.configuration;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.*;
 import de.gurkenlabs.litiengine.util.io.FileUtilities;
 import java.io.File;
 import java.util.UUID;
@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class ConfigurationTests {
 
@@ -94,6 +96,13 @@ class ConfigurationTests {
     assertEquals("", configGroup.getTestWithNoSetter());
     assertArrayEquals(new String[] {"test", "testicle"}, configGroup.getTestStringArray());
   }
+
+  @Test
+  void testGetConfigurationGroupInvalidKey() {
+    Configuration config = new Configuration();
+    assertNull(config.getConfigurationGroup("invalidKey"), "Expect null for non-existing group.");
+  }
+
 
   private enum TEST {
     TEST1,
