@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import org.mockito.Mockito;
-import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+
 
 public class GravityForceTests {
 
@@ -50,11 +51,40 @@ public class GravityForceTests {
     assertEquals(expectedCenter, calculatedCenter, "The calculated center should match the expected center.");
   }
 
+  private IEntity mockEntity;
+  private final float testStrength = 10.0f;
+  private final Direction testDirection = Direction.DOWN;
+  private final float testAngle = 180.0f;
 
+  @BeforeEach
+  void setUp() {
+    mockEntity = Mockito.mock(IEntity.class);
+    Mockito.when(mockEntity.getCenter()).thenReturn(new Point2D.Double(100, 100));
+    Mockito.when(mockEntity.getWidth()).thenReturn(50.0);
+    Mockito.when(mockEntity.getHeight()).thenReturn(50.0);
+  }
 
+  @Test
+  public void testGetForceEntity() {
+    GravityForce gravityForce = new GravityForce(mockEntity, testStrength, testDirection);
+    assertEquals(mockEntity, gravityForce.getForceEntity());
+  }
 
+  @Test
+  public void testGravityForceEffectOnEntity() {
+    // Create a mock entity with initial parameters
+    IEntity mockEntity = Mockito.mock(IEntity.class);
+    Mockito.when(mockEntity.getCenter()).thenReturn(new Point2D.Double(100, 100));
+    Mockito.when(mockEntity.getWidth()).thenReturn(50.0);
+    Mockito.when(mockEntity.getHeight()).thenReturn(50.0);
 
+    // Create a GravityForce instance
+    GravityForce gravityForce = new GravityForce(mockEntity, 10.0f, Direction.DOWN);
 
+    // Apply the gravity force to the entity
 
+    // Check the new state or location of the entity after applying the force
+    // For example, Check if the entity has moved downwards
+  }
 
 }
