@@ -143,5 +143,48 @@ class DirectionTests {
     assertEquals(distance, actualDistance, 0.01, "The distance between the points should match the projected distance.");
   }
 
+//  ****** Integration Test  *********
+//  @Test
+//  public void testFromAngle() {
+//    assertEquals(Direction.DOWN, Direction.fromAngle(0));
+//    assertEquals(Direction.RIGHT, Direction.fromAngle(90));
+//    assertEquals(Direction.UP, Direction.fromAngle(180));
+//    assertEquals(Direction.LEFT, Direction.fromAngle(270));
+//    assertEquals(Direction.UNDEFINED, Direction.fromAngle(360));
+//  }
+//
+//  @Test
+//  public void testFromFlagValues() {
+//    assertEquals(Direction.DOWN, Direction.fromFlagValue((byte) 1));
+//    assertEquals(Direction.LEFT, Direction.fromFlagValue((byte) 2));
+//    assertEquals(Direction.RIGHT, Direction.fromFlagValue((byte) 4));
+//    assertEquals(Direction.UNDEFINED, Direction.fromFlagValue((byte) 16));
+//  }
+//
+//  @Test
+//  public void testGetOpposite() {
+//    assertEquals(Direction.UP, Direction.DOWN.getOpposite());
+//    assertEquals(Direction.RIGHT, Direction.LEFT.getOpposite());
+//    assertEquals(Direction.LEFT, Direction.RIGHT.getOpposite());
+//    assertEquals(Direction.DOWN, Direction.UP.getOpposite());
+//    assertEquals(Direction.UNDEFINED, Direction.UNDEFINED.getOpposite());
+//  }
+//
+//  @Test
+//  public void testToAngle() {
+//    assertEquals(0f, Direction.DOWN.toAngle());
+//    assertEquals(90f, Direction.RIGHT.toAngle());
+//    assertEquals(180f, Direction.UP.toAngle());
+//    assertEquals(270f, Direction.LEFT.toAngle());
+//    assertEquals(0f, Direction.UNDEFINED.toAngle());
+//  }
+//
+//  @Test
+//  public void testToFlagValue() {
+//    assertEquals((byte) 1, Direction.DOWN.toFlagValue());
+//    assertEquals((byte) 2, Direction.LEFT.toFlagValue());
+//    assertEquals((byte) 4, Direction.RIGHT.toFlagValue());
+//    assertEquals((byte) 16, Direction.UNDEFINED.toFlagValue());
+//  }
 
 }
