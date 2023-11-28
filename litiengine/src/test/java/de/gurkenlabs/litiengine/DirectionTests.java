@@ -13,6 +13,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.MockedStatic;
+import static org.junit.jupiter.api.Assertions.*;
+import java.awt.geom.Point2D;
 
 class DirectionTests {
 
@@ -121,5 +123,25 @@ class DirectionTests {
       assertEquals(direction, result);
     }
   }
+
+  /*Testing Point Projection and Distance Calculation.*/
+  @Test
+  void testPointProjectionAndDistanceCalculation() {
+    // Initial point
+    Point2D startPoint = new Point2D.Double(50, 50);
+
+    // Expected distance for projection
+    double distance = 100;
+
+    // Project the point at a 45-degree angle for the distance of 100
+    Point2D projectedPoint = GeometricUtilities.project(startPoint, 45, distance);
+
+    // Calculate the actual distance between the original and projected point
+    double actualDistance = GeometricUtilities.distance(startPoint, projectedPoint);
+
+    // Assert that the actual distance matches the expected distance
+    assertEquals(distance, actualDistance, 0.01, "The distance between the points should match the projected distance.");
+  }
+
 
 }
