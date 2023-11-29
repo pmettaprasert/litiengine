@@ -72,7 +72,7 @@ jobs:
           echo "Build status from env: $BUILD_STATUS"
           echo "Test status from env: $TEST_STATUS"
 
-
+  #fdsafsfda
 
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
