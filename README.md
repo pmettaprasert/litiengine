@@ -1,3 +1,5 @@
+Added additional unit testing and overall testing.
+
 ![LITIENGINE Logo](litiengine/src/main/resources/litiengine-banner.png "LITIENGINE Logo")
 
 **LITIENGINE** is a free and open source Java 2D Game Engine. It provides a comprehensive Java library and a dedicated map editor to create tile-based 2D games.
